@@ -8,7 +8,6 @@ int ledPin7=5;
 int ledPin8=4;
 int ledPin9=3;
 int mikroPin=8;
-
 int val =0;
 const int SAMPLE_TIME = 10;
 unsigned long millisCurrent;
@@ -16,7 +15,6 @@ unsigned long millisLast = 0;
 unsigned long millisElapsed = 0;
 
 int sampleBufferValue = 0;
-
 void setup(){
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);
@@ -56,7 +54,6 @@ void loop (){
   else {
     digitalWrite(ledPin2, LOW);
   }
-
    //3
    if (sampleBufferValue >= 30) {
     digitalWrite(ledPin3, HIGH);
@@ -64,7 +61,6 @@ void loop (){
   else {
     digitalWrite(ledPin3, LOW);
   }
-
   //4
   if (sampleBufferValue >= 45) {
     digitalWrite(ledPin4, HIGH);
