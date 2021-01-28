@@ -3,17 +3,17 @@
 ## Opis projektu
 Układ ma na celu zapalanie diod od zielonych do czerwonych, w zależności od amplitudy drgań. Im większa jest amplituda drgań tym więcej diod się zaświeci. Do budowy tego układu użyje:
 
-*arduino uno
+* arduino uno
 
-*Mikrofon
+* Mikrofon
 
-*9 diod LED
+* 9 diod LED
 
-*9 rezystorów 220 ohm
+* 9 rezystorów 220 ohm
 
-*przewody
+* przewody
 
-*płytka stykowa
+* płytka stykowa
 
 ## Opis kodu
 
