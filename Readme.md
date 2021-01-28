@@ -160,10 +160,11 @@ void loop (){
   }
 }
 ```
-## Zdjęcia układu
+## Zdjęcie układu
 
 ![zdjecie_ukladu](zdjecie_ukladu.jpg)
 
+## Film pokazujący działanie układu
 
 
 
