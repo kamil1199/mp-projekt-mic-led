@@ -1,4 +1,4 @@
-# Projekt TPM
+# Projekt TM
 
 ## Opis projektu
 Układ ma na celu zapalanie diod od zielonych do czerwonych, w zależności od amplitudy sygnału. Im większa jest amplituda tym więcej diod się zaświeci. Do budowy tego układu użyto:
