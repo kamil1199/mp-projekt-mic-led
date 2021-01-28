@@ -9,13 +9,13 @@ int ledPin8=4; //zadeklarowny pin ledu 8
 int ledPin9=3; //zadeklarowny pin ledu 9
 int mikroPin=8; //zadeklarowany pin czujnika dźwięku
 
-int val =0; 
-const int czas_probkowania = 10; //czas próbkowania
-unsigned long millisCurrent; 
-unsigned long millisLast = 0; 
-unsigned long millisElapsed = 0; 
+int wartosc = 0; 
+const int czas_probkowania = 10; 
+unsigned long biezacy_czas; 
+unsigned long ostatni_czas = 0; 
+unsigned long czas_upl = 0; 
 
-int sampleBufferValue = 0; 
+int bufor_probkowania = 0; 
 
 void setup(){
   pinMode(ledPin1, OUTPUT); //Tryb pinu = wyjście do ledu
@@ -31,23 +31,23 @@ void setup(){
 }
 
 void loop (){
-  val =digitalRead(mikroPin); //odczytanie wartości z czujnika dźwięku przechowywaną w zmiennej
-  millisCurrent = millis(); //obecny czas
-  millisElapsed = millisCurrent - millisLast; //czas jaki upłynał
+  wartosc = digitalRead(mikroPin); //odczytanie wartości z czujnika dźwięku przechowywaną w zmiennej
+  biezacy_czas = millis(); //obecny czas
+  czas_upl = biezacy_czas - ostatni_czas; //czas jaki upłynał
 
-  if (val == HIGH) // stan wysoki (1)
+  if (wartosc == HIGH) // stan wysoki (1)
   {
-    sampleBufferValue++;
+    bufor_probkowania++;
   }
 
-  if (millisElapsed > czas_probkowania) 
+  if (czas_upl > czas_probkowania) 
   {
-    Serial.println(sampleBufferValue);
-    sampleBufferValue = 0;
-    millisLast = millisCurrent;
+    Serial.println(bufor_probkowania);
+    bufor_probkowania = 0;
+    ostatni_czas = biezacy_czas;
   }
    //1       
-   if (sampleBufferValue >= 10) 
+   if (bufor_probkowania >= 10) 
   {
     digitalWrite(ledPin1, HIGH); 
   }
@@ -57,7 +57,7 @@ void loop (){
   }
 
   //2
-   if (sampleBufferValue >= 25) 
+   if (bufor_probkowania >= 25) 
   {
     digitalWrite(ledPin2, HIGH);
   }
@@ -67,7 +67,7 @@ void loop (){
   }
 
    //3
-   if (sampleBufferValue >= 30) 
+   if (bufor_probkowania >= 30) 
   {
     digitalWrite(ledPin3, HIGH);
   }
@@ -77,7 +77,7 @@ void loop (){
   }
 
   //4
-  if (sampleBufferValue >= 45) 
+  if (bufor_probkowania >= 45) 
   {
     digitalWrite(ledPin4, HIGH);
   }
@@ -86,7 +86,7 @@ void loop (){
     digitalWrite(ledPin4, LOW);
   }
  //5
- if (sampleBufferValue >= 60) 
+ if (bufor_probkowania >= 60) 
   {
     digitalWrite(ledPin5, HIGH);
   }
@@ -95,7 +95,7 @@ void loop (){
     digitalWrite(ledPin5, LOW);
   }
   //6
-   if (sampleBufferValue >= 70) 
+   if (bufor_probkowania >= 70) 
   {
     digitalWrite(ledPin6, HIGH);
   }
@@ -104,7 +104,7 @@ void loop (){
     digitalWrite(ledPin6, LOW);
   }
   //7
-   if (sampleBufferValue >= 80) 
+   if (bufor_probkowania >= 80) 
   {
     digitalWrite(ledPin7, HIGH);
   }
@@ -113,7 +113,7 @@ void loop (){
     digitalWrite(ledPin7, LOW);
   }
   //8
-   if (sampleBufferValue >= 90) 
+   if (bufor_probkowania >= 90) 
   {
     digitalWrite(ledPin8, HIGH);
   }
@@ -122,7 +122,7 @@ void loop (){
     digitalWrite(ledPin8, LOW);
   }
   //9
-   if (sampleBufferValue >= 100) 
+   if (bufor_probkowania >= 100) 
   {
     digitalWrite(ledPin9, HIGH);
   }
