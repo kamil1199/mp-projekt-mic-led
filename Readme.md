@@ -1,15 +1,15 @@
 # Projekt TPM
 
 ## Opis projektu
-Układ ma na celu zapalanie diod od zielonych do czerwonych, w zależności od amplitudy drgań. Im większa jest amplituda drgań tym więcej diod się zaświeci. Do budowy tego układu użyje:
+Układ ma na celu zapalanie diod od zielonych do czerwonych, w zależności od amplitudy sygnału. Im większa jest amplituda tym więcej diod się zaświeci. Do budowy tego układu użyto:
 
-* arduino uno
+* Arduino Uno
 
-* Mikrofon
+* Czujnik dźwięku
 
 * 9 diod LED
 
-* 9 rezystorów 220 ohm
+* 9 rezystorów 220 Ω
 
 * przewody
 
@@ -53,10 +53,10 @@ void setup(){
   Serial.begin (9600); 
 }
 ```
-test
+Zlicza ilość dźwięku próbkowanego w czasie, nastepnie wykreśla amplitudę w Serial Plotterze.
 ```cpp
 void loop (){
-  wartosc = digitalRead(mikroPin); //odczytanie wartości z czujnika dźwięku przechowywaną w zmiennej
+  wartosc = digitalRead(mikroPin); //odczytanie wartości z czujnika dźwięku przechowywana w zmiennej
   biezacy_czas = millis(); //obecny czas
   czas_upl = biezacy_czas - ostatni_czas; //czas jaki upłynał
 
@@ -72,7 +72,7 @@ void loop (){
     ostatni_czas = biezacy_czas;
   }
   ```
-  Wraz ze zmianą amplitudy drgań zapala się więcej ledów.
+  Wraz ze zmianą amplitudy zapala się więcej ledów.
   ```cpp
    //1       
    if (bufor_probkowania >= 10) 
