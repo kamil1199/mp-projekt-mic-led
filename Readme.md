@@ -16,7 +16,11 @@ Układ ma na celu zapalanie diod od zielonych do czerwonych, w zależności od a
 * płytka stykowa
 
 ## Opis kodu
-
+```cpp
+test
+#define x10
+```
+test
 
 
 
