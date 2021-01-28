@@ -1,25 +1,25 @@
-int ledPin1=13; //deklarownie ledu 1
-int ledPin2=12; //deklarownie ledu 2
-int ledPin3=11; //deklarownie ledu 3
-int ledPin4=10; //deklarownie ledu 4
-int ledPin5=7; //deklarownie ledu 5
-int ledPin6=6; //deklarownie ledu 6
-int ledPin7=5; //deklarownie ledu 7
-int ledPin8=4; //deklarownie ledu 8
-int ledPin9=3; //deklarownie ledu 9
-int mikroPin=8; //deklarowanie mikrofonu
+int ledPin1=13; //zadeklarowny pin ledu 1
+int ledPin2=12; //zadeklarowny pin ledu 2
+int ledPin3=11; //zadeklarowny pin ledu 3
+int ledPin4=10; //zadeklarowny pin ledu 4
+int ledPin5=7; //zadeklarowny pin ledu 5
+int ledPin6=6; //zadeklarowny pin ledu 6
+int ledPin7=5; //zadeklarowny pin ledu 7
+int ledPin8=4; //zadeklarowny pin ledu 8
+int ledPin9=3; //zadeklarowny pin ledu 9
+int mikroPin=8; //zadeklarowany pin czujnika dźwięku
 
-int val =0;
-const int SAMPLE_TIME = 10;
-unsigned long millisCurrent;
-unsigned long millisLast = 0;
-unsigned long millisElapsed = 0;
+int val =0; 
+const int czas_probkowania = 10; //czas próbkowania
+unsigned long millisCurrent; 
+unsigned long millisLast = 0; 
+unsigned long millisElapsed = 0; 
 
-int sampleBufferValue = 0;
+int sampleBufferValue = 0; 
 
 void setup(){
-  pinMode(ledPin1, OUTPUT); //Konfiguracja wyjść pod diody LED
-  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin1, OUTPUT); //Tryb pinu = wyjście do ledu
+  pinMode(ledPin2, OUTPUT); 
   pinMode(ledPin3, OUTPUT);
   pinMode(ledPin4, OUTPUT);
   pinMode(ledPin5, OUTPUT);
@@ -27,20 +27,20 @@ void setup(){
   pinMode(ledPin7, OUTPUT);
   pinMode(ledPin8, OUTPUT);
   pinMode(ledPin9, OUTPUT);
-  Serial.begin (9600);
+  Serial.begin (9600); 
 }
 
 void loop (){
-  val =digitalRead(mikroPin);
-  millisCurrent = millis();
-  millisElapsed = millisCurrent - millisLast;
+  val =digitalRead(mikroPin); //odczytanie wartości z czujnika dźwięku przechowywaną w zmiennej
+  millisCurrent = millis(); //obecny czas
+  millisElapsed = millisCurrent - millisLast; //czas jaki upłynał
 
-  if (val == HIGH)
+  if (val == HIGH) // stan wysoki (1)
   {
     sampleBufferValue++;
   }
 
-  if (millisElapsed > SAMPLE_TIME)
+  if (millisElapsed > czas_probkowania) 
   {
     Serial.println(sampleBufferValue);
     sampleBufferValue = 0;
