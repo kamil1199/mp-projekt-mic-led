@@ -160,7 +160,9 @@ void loop (){
   }
 }
 ```
+## Zdjęcia układu
 
+![zdjecie_ukladu](zdjecie_ukladu.jpg)
 
 
 
