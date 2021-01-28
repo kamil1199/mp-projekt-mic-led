@@ -1,4 +1,4 @@
-# klaskanie projekt
+# Projekt TPM
 TMP
 
 ## Opis projektu
